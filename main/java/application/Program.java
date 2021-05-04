@@ -23,10 +23,12 @@ public class Program {
 		//Person p = em.find(Person.class, 2);
 		
 		//Remove data
-		Person p1 = new Person(2, null, null);
-		em.remove(em);
+		Person p1 = em.find(Person.class, 3);
+		em.getTransaction().begin();
+		em.remove(p1);
+		em.getTransaction().commit();
 		
-		//System.out.println(p1);
+		System.out.println("Done! ");
 		em.close();
 		emf.close();
 
